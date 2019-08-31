@@ -28,10 +28,7 @@
 %-------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
 %-------------------------------------------------------------------------------
-\title{Práctica 1 - MTF del ojo humano\\
-%{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and should not be used}
-%\thanks{Identify applicable funding agency here. If none, delete this.}
-}
+\title{Práctica 1 - MTF del ojo humano}
 
 
 %-------------------------------------------------------------------------------
@@ -53,65 +50,175 @@
 %	ABSTRACT
 %-------------------------------------------------------------------------------
 \begin{abstract}
-En este documento se aborda el tema de \textit{dithering}, mostrando la implementación de \textit{dither ordenado}, \textit{dither aleatorio} y \textit{dither difusión de error}, para éste último en escala de grises y color.
+En este documento se describen las aplicaciones de la \textit{MTF}, el cálculo de ecuaciones para generarla en \textit{python}, así como experimentos utilizando este estímulo con diferentes personas a distintas distancias, que para obtener medidas invariantes a la distancia de observación, el cálculo de esta frecuencia será expresado en ciclos/grado.
 \end{abstract}
 
 \begin{IEEEkeywords}
-dithering, Floyd Steinberg, random, ordered, shared error, python, opencv
+MTF, SVH, python, sinusoidal modulada, experimentos, invariantes
 \end{IEEEkeywords}
 
-%-------------------------------------------------------------------------------
-%	INTRODUCTION
-%-------------------------------------------------------------------------------
-\section{Introducción}
 
-\textcolor{violet}{\lipsum[3]}
+%-------------------------------------------------------------------------------
+%	SECTION 1
+%-------------------------------------------------------------------------------
+\section{\textit{Objetivo}}
+
+
+\begin{itemize}
+\item Encontrar la \textit{MTF} del ojo experimentalmente.
+\item Encontrar la frecuencia de máxima sensibilidad del ojo humano.
+\item Generar los cálculos necesarios para obtener la función sinusoidal en frecuencia y amplitud.
+\item Desplegar el estímulo visual sinusoidal modulada.
+\end{itemize}
+
+
+%-------------------------------------------------------------------------------
+%	SECTION 1
+%-------------------------------------------------------------------------------
+\section{\textit{Introducción}}
+
+La \textit{MTF} (\textit{Modulation Transfer Function}) o función de transferencia de modulación se ha convertido en una herramienta muy utilizada para especificar el rendimiento y la resolución de toda clase de sistemas ópticos y de visión, que van desde lentes, cintas magnéticas y películas hasta telescopios, la atmósfera y el ojo humano.
+
+La \textit{MTF} es usada para caracterizar sistemas lineales e invariantes en el espacio, sin embargo, a pesar de que el Sistema Visual Humano (SVH) no cumple con estas dos propiedades, la \textit{MTF} se ha utilizado para caracterizarlo bajo condiciones de iluminación controladas.
+
+La \textit{MTF} también puede interpretarse como la capacidad de un sistema óptico para percibir contraste, es decir, la capacidad de resolver o diferenciar líneas a una determinada frecuencia espacial.
+
+Para entender de manera simplificada el concepto de frecuencia espacial, hay que notar que las frecuencias espaciales bajas equivalen a repeticiones de patrones muy separados espacialmente (por ejemplo, líneas muy separadas) y que las altas equivalen a repeticiones más compactas.
+
+Hay que considerar que todo sistema de visión tiene un límite superior a partir del cual ya no le es posible distinguir más detalles. Este límite está directamente relacionado con la frecuencia de \textit{Nyquist}\cite{p4}. En los estudios de sensibilidad del \textit{SVH} a base de experimentación psico-física, se ha encontrado que su \textit{MTF} consiste en una función del tipo paso-banda con un pico o frecuencia espacial máxima en el rango de 2 a 6 ciclos por grado\cite{p1}\cite{p2}.
+
+En esta practica se examinará la sensibilidad del \textit{SVH} a distintas frecuencias espaciales; la idea general de crear un patrón de sinusoidales, cuya frecuencia aumenta en el eje horizontal y el contraste en el eje vertical. La envolvente del patrón visibles generalmente muestra un comportamiento similar a la curva de la \textit{MTF}.
+
+Comprobaremos que dicho pico, que representa la frecuencia máxima de sensibilidad del ojo humano se moverá conforme el observador se aleja o acerca del estímulo. Para obtener una medición invariante a la distancia de observación, el cálculo de esta frecuencia de observación debe ser expresado en ciclos/grado.
+
+
+%-------------------------------------------------------------------------------
+%	SECTION 1
+%-------------------------------------------------------------------------------
+\section{\textit{Desarrollo}}
+
+En esta sección se muestra el cálculo para obtener las constantes de la función sinusoidal modulada en frecuencia y en amplitud.
+
+
+
+
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=80mm]{code/mtf}}
-\caption{Código para \textit{random dither}.}
-\label{randomPy}
+\caption{Estímulo visual (sinusoidal modulada).}
+\label{mtf}
 \end{figure}
 
 
 %-------------------------------------------------------------------------------
 %	SECTION 1
 %-------------------------------------------------------------------------------
-\section{\textit{Dithering}}
+\section{\textit{Resultados}}
+\textcolor{violet}{Los resultados deberán presentarse con los cálculos respectivos para obtener la frecuencia de máxima sensibilidad para cada una de lasdistancias con las que se experimentó}
+
+3.Observar la MTF a varias distancias de observación.
+4.Calcular la frecuencia de máxima sensibilidad (en ciclos/grado) a 3 distancias diferentes de observación
+
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tabular}{c|c|c|c|}
+	 & $D_1=30cm$ & $D_2=60cm$ & $D_3=100 cm$\\
+	\hline
+	$X$ & 0 & 0 & 0\\
+	\hline
+	$\phi'$ & 0 & 0 & 0\\
+	\hline
+	$\alpha$ & 0 & 0 & 0\\
+	\hline
+	$f$ & 0 & 0 & 0\\
+	\hline
+\end{tabular}
+
+\caption{Tabla de resultados, experimento 1.1.}
+\label{res1.1}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tabular}{c|c|c|c|}
+	 & $D_1=30cm$ & $D_2=60cm$ & $D_3=100 cm$\\
+	\hline
+	$X$ & 0 & 0 & 0\\
+	\hline
+	$\phi'$ & 0 & 0 & 0\\
+	\hline
+	$\alpha$ & 0 & 0 & 0\\
+	\hline
+	$f$ & 0 & 0 & 0\\
+	\hline
+\end{tabular}
+
+\caption{Tabla de resultados, experimento 1.2.}
+\label{res1.2}
+\end{figure}
+
+
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tabular}{c|c|c|c|}
+	 & $D_1=30cm$ & $D_2=60cm$ & $D_3=100 cm$\\
+	\hline
+	$X$ & 0 & 0 & 0\\
+	\hline
+	$\phi'$ & 0 & 0 & 0\\
+	\hline
+	$\alpha$ & 0 & 0 & 0\\
+	\hline
+	$f$ & 0 & 0 & 0\\
+	\hline
+\end{tabular}
+
+\caption{Tabla de resultados, experimento 1.3.}
+\label{res1.3}
+\end{figure}
+
+
+
+
+%-------------------------------------------------------------------------------
+%	SECTION 1
+%-------------------------------------------------------------------------------
+\section{\textit{Conclusiones}}
 \textcolor{violet}{\lipsum[3]}
 
+
 %-------------------------------------------------------------------------------
-\subsection{Ventajas}
+%	SECTION 1
+%-------------------------------------------------------------------------------
+\section{\textit{Código fuente}}
 \textcolor{violet}{\lipsum[3]}
 
-%%-------------------------------------------------------------------------------
-%\subsection{Desventajas}
-%\textcolor{violet}{\lipsum[3]}
 
-
-
-
-%-------------------------------------------------------------------------------
-%	SECTION F
-%-------------------------------------------------------------------------------
-\section{Conclusiones}
-
-En
 
 %-------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %-------------------------------------------------------------------------------
 \begin{thebibliography}{00}
-\bibitem{b1} Team Veryovka-Buchanan, \textit{Developed Algorithms}. Avalible at \textit{https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/\\algoritmos\_desenvolvidos.htm}. [Accessed Agosto 25, 2019]
+\bibitem{p1} Pratt, W. k., Digital Image Processing, John Wiley \& Sons Inc, 2001.
 
-\bibitem{b2} Tanner Helland, \textit{Image Dithering: Eleven Algorithms and Source Code}. Avalible at \textit{http://www.tannerhelland.com/4660/dithering-eleven-algorithms-source-code}. [Accessed Agosto 25, 2019]
+\bibitem{p2} Levine, M.D., Vision in man and machine, McGraw-Hill, 1985.
 
-\bibitem{b3} Ordered Dithering. [Online]. Avalible at \textit{https://en.wikipedia.org/wiki/Ordered\_dithering}. [Accessed Agosto 25, 2019]
+\bibitem{p3} Norman Koren, \textit{Resolution and MTF curves in scanners and sharpening}. Avalible at \textit{http://www.normankoren.com/Tutorials/MTF2.html}. [Accessed Agosto 31, 2019]
+
+\bibitem{p4} Norman Koren, \textit{Nyquist frequency}. Avalible at \textit{https://en.wikipedia.org/wiki/Nyquist\_frequency}. [Accessed Agosto 31, 2019]
 \end{thebibliography}
 
-%\vspace{12pt}
-%\color{red}
-%IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
+
+
+
+
+
 
 %-------------------------------------------------------------------------------
 %	END DOCUMENT
