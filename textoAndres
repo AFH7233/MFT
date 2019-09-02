@@ -1,0 +1,50 @@
+Campbell-Robson Contrast Sensitivity chart
+
+Funcion Sensitividad al contraste
+En 1967 Cambell y Robson del laboratorio de psicologia  de la universidad de Cambridge
+[ref Campbell] definieron a la funcion de sensitividad al contraste como la variacion
+de la sensitividad a lo largo de un rango de frecuencias espaciales. Ellos sostenian 
+que nuestra habilidad para percibir el detalle de una escena visual esta determinado por 
+el tamaño relativo y el contraste del detalle presente.
+Para obtener el limite del contraste ellos diseñaron el test siguiente: Generaron objetivos
+de rejillas con diferentes modulaciones y formas de onda. Una  trama de 2000 lineas
+fue producida en una pantalla de rayos catodicos a una frecuencia de 100 Ciclos/segundo. La intensidad del 
+rayo fue modulada por una señal de un generador de señales. La luminancia fue de 500/cd/m^2. En frente
+de una pantalla blanca fue puesta una hoja de carton blanco de 30cm de diametro con una apertura
+de 10 x 10cm o 2 x2 cm. Al sujeto de prueba se le aplico homatropina en un ojo para obtener una pupila
+de 2.5 mm de diametro, el test fue monocular. Los limites de contraste fueron determinados por el sujeto
+ajustando el contraste de una rejilla de cierta frecuencia espacial, hasta que el patron era
+casi indistinguible.
+He de estos experimentos que surge la grafica Cambell y Robson CSF, ya que al tener un barrido en frecuencias 
+asemeja el barrido realizado por ellos en el tubo de rayos catodicos. En sus resultados estipulan que 
+la maxima sensitividad se encuentra a los 4 ciclos por grado.
+
+Estos resultados son utiles en el diagnostico de enfermades como el glaucoma [ref glaucoma] pero tambien
+en determinar que es visible para el ojo humano, y que asi un sistema inteligente de un automovil peuda decidir
+en que momentos es necesario asistir al usuario. 
+
+
+Desarrollo:
+
+Debido a que las herramientas para mostrar una imagen usualmente realizan un escalamiento de la misma por lo que
+la prueba puede verse afectada, tambien se decidio probar con una imagen en la web generada por un shader 3d, lo que presenta 
+como ventaja es que el test es renderizado de acuerdo al dispositivo con el que se accese a la pagina, es decidi
+si se ingresa con un dispositivo cuya ventana de navegador es de 1024 x 512 pixeles, la imagen sera generada de aceurdo a esas cantidades
+y por los navegadores preservarán la imagen sin escalamientos. El codigo del shader para realizar esto se puede ver en [shaderCode.png]
+
+
+Este set de pruebas pertenecen al mismo sujeto todas las imagenes fueron realizadas utilizando el mismo monitor a una distancia de 65 cm,
+la primera grafica [test1.jpg] es con el uso de lentes que corrigen miopia y astigmatismo. En esta se peude notar que la frecuencia a la cual
+se encuentra la sensibilidad maxima es a los 4.012 cpd.
+La segunda prueba se realizo con solo un ojo el cual tiene miopia y astigmatismo se puede mostrar que la curva se mueve considerablemnte
+a la izquierda y la sensibilidad maxima disminuye [Astigmatismo]
+Finalmente la misma prueba se realizo utilizando otro ojo con miopia se peude observar que auqnue tambien se puede observar un desplazamiento en la curva
+no es tan significativo como el que tiene astigmatismo [Miopia]
+
+
+
+
+
+
+[ref Campbell] = Campbell, F. W. and Robson, J. G. (1968) Application of Fourier analysis to the visibility of gratings. Journal of Physiology (London) 197: 551-566.
+[ref glaucoma] = https://iovs.arvojournals.org/article.aspx?articleid=2164531
