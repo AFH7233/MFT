@@ -94,6 +94,26 @@ En esta practica se examinará la sensibilidad del \textit{SVH} a distintas frec
 
 Comprobaremos que dicho pico, que representa la frecuencia máxima de sensibilidad del ojo humano se moverá conforme el observador se aleja o acerca del estímulo. Para obtener una medición invariante a la distancia de observación, el cálculo de esta frecuencia de observación debe ser expresado en ciclos/grado.
 
+%-------------------------------------------------------------------------------
+\subsection{Función Sensibilidad al Contraste}
+
+En 1967 \textit{Cambell y Robson} del laboratorio de psicología  de la universidad de \textit{Cambridge}\cite{p5} definieron a la función de sensibilidad al contraste como la variación de la sensibilidad a lo largo de un rango de frecuencias espaciales. Ellos sostenían que nuestra habilidad para percibir el detalle de una escena visual esta determinado por el tamaño relativo y el contraste del detalle presente.
+
+Para obtener el limite del contraste ellos diseñaron la siguiente prueba: 
+
+Generaron objetivos de rejillas con diferentes modulaciones y formas de onda. Una  trama de 2000 lineas
+fue producida en una pantalla de rayos catódicos a una frecuencia de 100 ciclos/segundo.
+
+La intensidad del rayo fue modulada por una señal de un generador de señales. La luminancia fue de
+$500/cd/m^2$. En 
+frente de una pantalla blanca fue puesta una hoja de cartón blanco de $30cm$ de diámetro con una apertura de $10cm \times 10cm$ o $2cm \times 2cm$. Al sujeto de prueba se le aplicó homatropina en un ojo para obtener una pupila de $2.5 mm$ de diámetro, la prueba fue monocular. Los limites de contraste fueron determinados por el sujeto ajustando el contraste de una rejilla de cierta frecuencia espacial, hasta que el patrón era casi indistinguible.
+
+Es de estos experimentos que surge la gráfica \textit{Cambell y Robson CSF}, ya que al tener un barrido en frecuencias  asemeja el barrido realizado por ellos en el tubo de rayos catódicos. En sus resultados estipulan que la máxima sensibilidad del ojo humano se encuentra al rededor de los 4 ciclos por grado.
+
+Estos resultados son útiles en el diagnostico de enfermedades como el glaucoma\cite{p6}, pero también
+en determinar que es visible para el ojo humano, y así, un sistema inteligente de un automóvil pueda decidir en que momentos es necesario asistir al usuario. 
+
+
 
 %-------------------------------------------------------------------------------
 %	SECTION 1
@@ -223,6 +243,48 @@ $\alpha= \tan^{-1}(dd/distancia)\cdot (180/\pi)$: Resultado en grados/pixels, el
 $f=\displaystyle\frac{\phi}{\alpha}$: Frecuencia de observación en ciclos/grado
 
 
+Debido a que las herramientas para mostrar una imagen usualmente realizan un
+escalamiento, la prueba puede verse afectada, por lo que también se decidió probar con una imagen en la \textit{web} generada por un \textit{shader 3d}, lo que
+presenta como ventaja en la prueba es que el renderizado va de acuerdo al dispositivo
+con el que se accede a la pagina, es decir, si se ingresa con un dispositivo
+cuya ventana de navegador es de $1024 \times 512\ pixeles$, la imagen sera generada de
+acuerdo a estas dimensiones y por los navegadores preservarán la imagen sin escalamientos. El código para generar el estímulo de esta prueba se muestra en la figura \ref{code2}.
+
+
+Este conjunto de pruebas pertenecen al mismo sujeto, donde todas las imágenes fueron
+realizadas utilizando el mismo monitor a una distancia de $65cm$, la primera
+gráfica (figura \ref{normal}), es con el uso de lentes que corrigen miopía y astigmatismo.
+En esta se puede notar que la frecuencia a la cual se encuentra la sensibilidad
+máxima es a los $4.012\ cpd$.
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=80mm]{code/Normal}}
+\caption{Estímulo visual (sinusoidal modulada).}
+\label{normal}
+\end{figure}
+
+
+La segunda prueba se realizó con solo un ojo, el cual
+tiene miopía y astigmatismo, se puede mostrar que la curva se mueve
+considerablemente a la izquierda y la sensibilidad máxima disminuye (figura \ref{astigmatismo}).
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=80mm]{code/astigmatismo}}
+\caption{Estímulo visual (sinusoidal modulada).}
+\label{astigmatismo}
+\end{figure}
+
+Finalmente la misma prueba se realizó utilizando otro ojo con
+miopía se puede observar que aunque también se puede observar un desplazamiento
+en la curva no es tan significativo como el que tiene astigmatismo (figura \ref{miopia}).
+
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=80mm]{code/miopia}}
+\caption{Estímulo visual (sinusoidal modulada).}
+\label{miopia}
+\end{figure}
+
 %-------------------------------------------------------------------------------
 %	SECTION 1
 %-------------------------------------------------------------------------------
@@ -333,6 +395,14 @@ Este programa permite al usuario dar \textit{click} sobre la imagen para tener e
 Para la implementación, la función sinusoidal de multiplicó por $0.5$ y se sumó $0.5$ para ajustar los valores al rango  $[0,1]$, ya que estaban en $[-1,1]$.
 
 
+Para la implementación de la versión en \textit{web} se utilizó el siguiente código:
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=80mm]{code/shaderCode}}
+\caption{Código utilizado para la implementación en \textit{web}.}
+\label{code2}
+\end{figure}
+
 %-------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %-------------------------------------------------------------------------------
@@ -344,12 +414,13 @@ Para la implementación, la función sinusoidal de multiplicó por $0.5$ y se su
 \bibitem{p3} Norman Koren, \textit{Resolution and MTF curves in scanners and sharpening}. Avalible at \textit{http://www.normankoren.com/Tutorials/MTF2.html}. [Accessed Agosto 31, 2019]
 
 \bibitem{p4} Norman Koren, \textit{Nyquist frequency}. Avalible at \textit{https://en.wikipedia.org/wiki/Nyquist\_frequency}. [Accessed Agosto 31, 2019]
+
+
+\bibitem{p5} Campbell, F. W. and Robson, J. G. (1968) Application of Fourier analysis to the visibility of gratings. Journal of Physiology (London) 197, 551-566.
+
+\bibitem{p6} Allison M. McKendrick, \textit{Contrast Sensitivity Changes Due to Glaucoma and Normal Aging}\textit{https://iovs.arvojournals.org/article.aspx?\\articleid=2164531}[Accessed Agosto 31, 2019]
+
 \end{thebibliography}
-
-
-
-
-
 
 
 %-------------------------------------------------------------------------------
