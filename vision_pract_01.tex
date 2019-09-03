@@ -9,6 +9,7 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{lipsum}
+\usepackage{hyperref}
 
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -22,6 +23,19 @@
 
 \def\shadowLine{\vspace{3mm}}
 \def\shadowMath{\\[3mm]}
+
+\hypersetup{pdfpagemode={UseOutlines},
+	bookmarksopen=true,
+	bookmarksopenlevel=0,
+	hypertexnames=false,
+	colorlinks=true,% Set to false to disable coloring links
+	citecolor=red,% The color of citations
+	linkcolor=red,% The color of references to document elements (sections, figures, etc)
+%	urlcolor=mdtRed,% The color of hyperlinks (URLs)
+	pdfstartview={FitV},
+	unicode,
+	breaklinks=true,
+}
 
 %-------------------------------------------------------------------------------
 %	BEGIN DOCUMENT
@@ -402,6 +416,8 @@ Para la implementación de la versión en \textit{web} se utilizó el siguiente 
 \caption{Código utilizado para la implementación en \textit{web}.}
 \label{code2}
 \end{figure}
+
+El cual se puede visualizar con el siguiente enlace: \url{https://afh7233.github.io/}
 
 %-------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
